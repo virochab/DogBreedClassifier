@@ -8,6 +8,8 @@ April 09, 2021
 
 **I. Definition**
 Capstone project for Udacity Machine Learning Engineer nanodegree. 
+Dog breed classification using CNN supervised deep learning on the provided image datasets. Identify image is of a human is provided or of a dog.
+If image is human should provide the most resembling canine breed. 
 
 **II. Analysis**
 
@@ -73,6 +75,9 @@ Transformations are applied on train dataset images to centre crop of size 224*2
 Also data augmentation is done using random horizontal flip of train dataset images. 
 
 **Implementation**
+Tools:
+OpenCV used for human face detection.
+Pytorch used for building models in CNN. 
 
 For human face detection:
 OpenCV's implementation of Haar feature-based cascade classifiers is used to detect human faces in images.
