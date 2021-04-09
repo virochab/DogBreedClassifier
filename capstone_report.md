@@ -75,6 +75,7 @@ Transformations are applied on train dataset images to centre crop of size 224*2
 Also data augmentation is done using random horizontal flip of train dataset images. 
 
 **Implementation**
+
 **Tools:**
 OpenCV used for human face detection.
 Pytorch used for building models in CNN. 
