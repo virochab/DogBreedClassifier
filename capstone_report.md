@@ -6,9 +6,6 @@ Virochan Badiger
 
 April 09, 2021
 
-**
-Metrics**
-
 **I. Definition**
 Capstone project for Udacity Machine Learning Engineer nanodegree. 
 
