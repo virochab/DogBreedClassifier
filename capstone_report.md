@@ -6,27 +6,27 @@ Virochan Badiger
 
 April 09, 2021
 
+**
+Metrics**
 
-
-I. Definition
+**I. Definition**
 Capstone project for Udacity Machine Learning Engineer nanodegree. 
-
-Project Overview
+**II. Analysis**
+**Project Overview**
 This project is on the Image classification using CNN. If the image of a dog is provided it should identify the dog breed. If image of a human is provided it 
 should provide the most resembling canine breed. This is a multi-class classification problem using 
 supervised machine learning under deep learning CNN.
 
-Metrics
+**Metrics**
 Accuracy will be the main metric used to measure this model. 
 
-II. Analysis
+**II. Analysis**
 To detect human faces, we use Open CV’s Haar feature based cascade classifiers model. 
 OpenCV already contains many pre-trained classifiers for face, eyes, smile etc. Those XML files are 
 stored in opencv/data/haarcascades/ folder. Using this facedetector we can detect human faces. 
 To detect dogs, we use a pretrained VGG-16 model. VGG16 is a 16 layers deep convolutional neural 
 network model proposed by K. Simonyan and A. Zisserman from the University of Oxford in the paper 
 “Very Deep Convolutional Networks for Large-Scale Image Recognition”. The model achieves 92.7% top 5 test accuracy in ImageNet. 
-
 We then create a CNN from scratch to classify Dog breeds. We should get an accuracy of atleast 10%. 
 Now create a CNN using transfer learning using resnet18. We should get an accuracy of atleast 60% with 
 this approach. 
@@ -41,17 +41,17 @@ Now we create an algorithm to detect if image is of a dog then return the predic
 If image is of a human then return the resembling dog breed. If image is of neither dog nor human then 
 provide output that indicates an error.
 
-Data Exploration
+**Data Exploration**
 Datasets and input are provided by the Udacity from links 
 Dog dataset: https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip
 Human dataset: https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip
 There are total 13233 human images and 8351 dog images. Images are of size 250*250. 
 
-Benchmark
+**Benchmark**
 The CNN model created from scratch should have atleast 10% accuracy. 
 The CNN model created using transfer learning should have accuracy of 60%. 
 
-III. Methodology
+**III. Methodology**
 First: Detect human faces using Open CV’s Haar feature based cascade classifiers model. 
 
 Second: Detect dogs using a pretrained VGG-16 model 
@@ -69,11 +69,11 @@ Fifth: - Algorithm to detect if image is a dog then return the predicted breed.
 - if image is of a human then return the resembling dog breed. 
 - if image is of neither dog nor human then provide output that indicates an error.
 
-Data Preprocessing
+**Data Preprocessing**
 Transformations are applied on train dataset images to centre crop of size 224*224. 
 Also data augmentation is done using random horizontal flip of train dataset images. 
 
-Implementation
+**Implementation**
 
 For human face detection:
 OpenCV's implementation of Haar feature-based cascade classifiers is used to detect human faces in images.
@@ -99,29 +99,31 @@ For transfer learning I have used ResNet-18. ResNet-18 is a convolutional neural
 Because of the depth of the network present in this model and also the vast image dataset it is pretrained on. This is suitable for out task.
 
 
-IV. Results
+**IV. Results**
 
-Model Evaluation and Validation
+**Model Evaluation and Validation**
 The model from scratch reported a accuracy of 17% compared to the benchmark minimum expectation of 10%
 The Transfer learning model reported an accuracy of 82% compared to the benchmark minimum expectation of 60%
 
 
-Justification
+**Justification**
 The model from scratch is not deep enough to get higher accuracy on a dataset of so vast. Hence a basic from scratch model giving 17% accuracy is enough for the project purpose.
 The transfer learning model uses resnet 18 and trains last layer alone to get 82% accuracy. If more time is provided to train on the accuracy would increase. 
 
 
-V. Conclusion
+**V. Conclusion**
 Pytorch CNN model architecture used for the project are sufficient for the required benchmarks. If need higher accuracy we can explore more depth layers and higher training time. 
 
 
-
-Reflection
+**Reflection**
 I had to learn CNN Pytorch for this project from scratch. Having no experience in CNN models. This project was challenging and big learning experience for me. 
+The CNN models require understanding of CNN layers covering convolution, maxpooling, dropout layers, activation functions, dimension reduction of images, transformation of the images as part of preprocessing. All this is covered in this project. 
 
-Improvement
-The transfer learning could be improved with more exploration of different pretrained models and optimizer selections. Due to time constraint on the use of VM and overall project deadline time, a more detailed exploration of different pretrained models was not possible. 
-Also using more training data and time the transfer learning accuracy can be improved.
+**Improvement**
+The CNN model from scratch needs to be more deep and and trained for higher epochs to get more accuracy on image set of vast dog breeds of 133. 
+Since working with the restrictions of GPUs and time for project it is challenging to cover in this project. 
+The transfer learning could be improved with more exploration of different pretrained models and optimizer selections. Due to time constraint on the use of GPUs on VM and overall project deadline time, a more detailed exploration of different pretrained models was not possible. 
+
 
 
 
