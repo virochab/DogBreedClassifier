@@ -11,7 +11,9 @@ Metrics**
 
 **I. Definition**
 Capstone project for Udacity Machine Learning Engineer nanodegree. 
+
 **II. Analysis**
+
 **Project Overview**
 This project is on the Image classification using CNN. If the image of a dog is provided it should identify the dog breed. If image of a human is provided it 
 should provide the most resembling canine breed. This is a multi-class classification problem using 
