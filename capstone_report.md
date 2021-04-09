@@ -75,17 +75,19 @@ Transformations are applied on train dataset images to centre crop of size 224*2
 Also data augmentation is done using random horizontal flip of train dataset images. 
 
 **Implementation**
-Tools:
+**Tools:**
 OpenCV used for human face detection.
 Pytorch used for building models in CNN. 
 
-For human face detection:
+**For human face detection:**
 OpenCV's implementation of Haar feature-based cascade classifiers is used to detect human faces in images.
 
-For the model from scratch:
+**For the model from scratch:**
 The input dimensions of the images are (224,224,3). 3 is the number of channels.
 
-model print out for reference: (conv1): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1)) (conv2): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1)) (conv3): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) (fc1): Linear(in_features=6272, out_features=500, bias=True) (fc2): Linear(in_features=500, out_features=133, bias=True) (dropout): Dropout(p=0.3)
+**model print out for reference:** (conv1): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1)) (conv2): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1)) (conv3): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)) (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False) (fc1): Linear(in_features=6272, out_features=500, bias=True) (fc2): Linear(in_features=500, out_features=133, bias=True) (dropout): Dropout(p=0.3)
+
+**Below is the model data flow explained through layers. **
 
 First Conv layer has 3 input channels and 32 output features maps. kernel size is 3 and stride is 2, padding is 1. After the conv2d layer there is a maxpool layer of size (2,2). This is used to reduce the dimensions of the image. Dimension output is reduced to 56*56
 
@@ -98,7 +100,7 @@ This output is flattened and passed through dropout layer which is used to reduc
 The output is again passed through a dropout layer which reduces overfitting. Second linear layer input features are 500 and output is 133.
 Relu activation function is used for all layers.
 
-For transfer learning model:
+**For transfer learning model:**
 For transfer learning I have used ResNet-18. ResNet-18 is a convolutional neural network that is 18 layers deep. You can load a pretrained version of the network trained on more than a million images from the ImageNet database. Resnet-18 is used for the transfer learning task here. We use the pretrained model and choose the last layer alone for training. It is modified to output 133 outputs and trained again on our dataset.
 Because of the depth of the network present in this model and also the vast image dataset it is pretrained on. This is suitable for out task.
 
